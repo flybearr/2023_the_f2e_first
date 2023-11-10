@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 const PageContext = createContext({});
 export default PageContext;
 // eslint-disable-next-line react/prop-types
@@ -12,7 +12,6 @@ export const PageContextProvider = function ({ children }) {
     navigate(link);
     navBarToggle();
   };
-
   return (
     <PageContext.Provider value={{ navBarOpen, navBarToggle, link_to_page }}>
       {children}

@@ -1,5 +1,7 @@
 @import "../index.scss";
 
+// 手機版
+
 //圖片 wrap
 .img-wrap {
   width: 100%;
@@ -71,6 +73,33 @@
   top: 10px;
   font-weight: bold;
   &:active {
+    color: $primary;
+  }
+}
+
+// 網頁版
+
+.desktop-navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(151, 178, 189);
+}
+
+.desktop-img-wrap {
+  img {
+    width: 200px;
+    height: 100px;
+  }
+}
+
+.desktop-link-wrap {
+  height: 100px;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  &:hover {
     color: $primary;
   }
 }

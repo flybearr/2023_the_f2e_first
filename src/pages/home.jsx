@@ -8,9 +8,6 @@ import Footer from "../components/footer";
 export default function Home() {
   return (
     <div className="home-wrap">
-      <div className="img-wrap">
-        <img src="./image/cattext.png" alt="" />
-      </div>
       <section className="home-banner">
         <h3>台灣的明天，喵先鋪路 !</h3>
         <h3>為喵星人，護台灣!</h3>
