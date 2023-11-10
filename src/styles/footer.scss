@@ -1,0 +1,44 @@
+@import "../index.scss";
+.footer {
+  width: 100%;
+  background-color: $neutral1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-row1 {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+}
+.footer-dash {
+  width: 90%;
+  height: 10px;
+  border-bottom: 2px dashed $text;
+}
+
+.footer-detail {
+  width: 90%;
+  padding-top: 1rem;
+  display: flex;
+  gap: 5px;
+  span {
+    color: $text;
+  }
+}
+.copyright {
+  width: 90%;
+  p {
+    padding-top: 1rem;
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+}

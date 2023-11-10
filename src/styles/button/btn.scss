@@ -1,0 +1,18 @@
+@import "../../index.scss";
+
+.btn {
+  margin: 2rem auto;
+  width: 180px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  border: none;
+  color: $neutral1;
+  cursor: pointer;
+  background-color: $neutral2;
+  &:active {
+    background-color: $primary;
+  }
+}

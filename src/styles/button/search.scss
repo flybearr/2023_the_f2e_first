@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+.custom-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.search-icon {
+  font-size: 24px;
+  margin-right: 10px;
+  transform: translate(-150%, -5%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+.search {
+  width: 184px;
+  height: 37.6px;
+  border: 1px solid $text;
+  border-radius: 20px;
+  padding-left: 20px;
+  &:hover {
+    border-color: $neutral2;
+  }
+  &:focus {
+    border-color: $neutral2;
+    outline: none;
+  }
+}
