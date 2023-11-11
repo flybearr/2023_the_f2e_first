@@ -46,7 +46,7 @@
   width: 100%;
   margin-bottom: 1rem;
   overflow: hidden;
-
+  position: relative;
   &:hover {
     img {
       transform: scale(1.5);
@@ -56,17 +56,44 @@
     transition: 0.5s;
     width: 100%;
     aspect-ratio: 525/334;
+    object-fit: cover;
+  }
+  .touch-bar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: $primary;
+    border-radius: 10px 0 0 0;
+    .favoriteIcon {
+      width: 50px;
+      fill: $neutral1;
+    }
+    span {
+      color: $neutral1;
+      cursor: pointer;
+      &:active {
+        color: $neutral2;
+      }
+    }
   }
 }
 .card-bottom {
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  text-align: left;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .card-wrap {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
+    // padding: 0 10px 10px 0;
+
     h6 {
       line-height: 1.5rem;
     }
@@ -74,8 +101,7 @@
 
   .card-title {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     //文字tag
     .card-tag-number {
       width: 80px;
@@ -98,7 +124,9 @@
     }
     //title 文字敘述
     .title-decsribe {
-      line-height: 2.3rem;
+      margin: 0;
+      line-height: 2rem;
+      text-align: left;
     }
   }
   .card-img-wrap {
@@ -116,9 +144,15 @@
       width: 100%;
       aspect-ratio: 525/334;
     }
+    .touch-bar {
+      span {
+        &:hover {
+          color: $neutral2;
+        }
+      }
+    }
   }
   .card-bottom {
-    width: 90%;
-    margin: 0 auto;
+    // width: 1%;
   }
 }

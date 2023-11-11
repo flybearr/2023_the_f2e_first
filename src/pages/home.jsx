@@ -4,8 +4,52 @@ import NextBtn from "../components/button/nextBtn";
 import Btn from "../components/button/btn";
 import DonateBox from "../components/donateBox";
 import Footer from "../components/footer";
+import { useMediaQuery } from "react-responsive";
 
 export default function Home() {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const cardContent = [
+    {
+      title1: "參與台北寵物論壇",
+      title2: "爭取貓咪友善環境",
+      content:
+        "炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的 VIP 休憩空間。",
+    },
+    {
+      title1: "掃街模式開啟！",
+      title2: " 帶著你的貓耳，來和我一起走！",
+      content:
+        "街上氣氛真的很棒，從小孩到大人，甚至有些狗狗朋友都帶著貓耳來找我握手，真的太可愛了！這次的活動不僅讓我看到大家的熱情，更加堅定了我推進「貓咪友善環境」政策的決心。",
+    },
+    {
+      title1: "收容所模特兒大比拼！",
+      content:
+        "今天的收容所不再是一片寂靜。為了讓更多人認識到這裡的毛孩子，我們舉辦了一場前所未有的「模特兒走秀」！",
+    },
+  ];
+  const cardWrapDom = isMobile ? (
+    <Card
+      title1={cardContent[0].title1}
+      title2={cardContent[0]?.title2}
+      content={cardContent[0].content}
+      img={1}
+    />
+  ) : (
+    <div className="desktop-card-wrap">
+      {cardContent.map((v, i) => {
+        return (
+          <div key={"desktop-card-wrap" + i}>
+            <Card
+              title1={v.title1}
+              title2={v?.title2}
+              content={v.content}
+              img={i + 1}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
   return (
     <div className="home-wrap">
       <section className="home-banner">
@@ -14,16 +58,16 @@ export default function Home() {
       </section>
       <section className="home-section1">
         <div className="section1-content-wrap">
-          <h6>主張</h6>
+          <h5>主張</h5>
           <div className="section1-line"></div>
-          <h6>
+          <h5>
             我堅信，藉由推動更完善的貓咪福利和相關政策，更是間接地投資於台灣的未來。畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的
             GDP 經濟帶來巨大效益。
-          </h6>
+          </h5>
           <br />
-          <h6>
+          <h5>
             因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
-          </h6>
+          </h5>
         </div>
       </section>
 
@@ -31,7 +75,7 @@ export default function Home() {
       <section className="home-section4"></section> */}
       <section className="home-section2">
         <h3>最新消息</h3>
-        <Card />
+        {cardWrapDom}
         <NextBtn />
       </section>
 
@@ -91,7 +135,7 @@ export default function Home() {
             <div className="input-area">
               <label htmlFor="mail">Email</label>
               <input
-                type="text"
+                type="mail"
                 name="mail"
                 id="mail"
                 placeholder="請輸入mail帳戶"
@@ -116,7 +160,6 @@ export default function Home() {
                 placeholder="請輸入你的建言"
               />
             </div>
-
             <Btn text={"送出"} />
           </form>
         </div>

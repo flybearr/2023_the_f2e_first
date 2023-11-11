@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 2rem;
 }
 .footer-row1 {
   width: 90%;
@@ -29,6 +30,7 @@
     color: $text;
   }
 }
+
 .copyright {
   width: 90%;
   p {

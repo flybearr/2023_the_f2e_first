@@ -1,5 +1,6 @@
 import "../../styles/card/card.scss";
-export default function Card() {
+// eslint-disable-next-line react/prop-types
+export default function Card({ title1, title2, content, img }) {
   return (
     <div className="card-wrap">
       <div className="card-title">
@@ -8,18 +9,20 @@ export default function Card() {
           <span className="date">12/26</span>
         </div>
         <div className="title-decsribe">
-          <h5>參與台北寵物論壇 </h5>
-          <h5>爭取貓咪友善環境 </h5>
+          <h5>{title1} </h5>
+          <h5>{title2} </h5>
         </div>
       </div>
       <div className="card-img-wrap">
-        <img src="./image/cardImg.jpeg" alt="catBanner" />
+        <img src={`./image/cardImg${img}.jpeg`} alt="catBanner" />
+        <div className="touch-bar">
+          {/* {favorite} */}
+          <span className="material-icons">favorite</span>
+          <span className="material-symbols-outlined">share</span>
+        </div>
       </div>
       <div className="card-bottom">
-        <h6>
-          炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的
-          VIP 休憩空間。
-        </h6>
+        <h6>{content}</h6>
       </div>
     </div>
   );
