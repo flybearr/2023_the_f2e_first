@@ -27,11 +27,13 @@ export default function Footer() {
   ));
   return (
     <div className="footer">
-      <div className="footer-row1">{linksDom}</div>
-      <div className="footer-dash"></div>
-      {footerDetailDom}
-      <div className="copyright">
-        <p>© 2023 [立委候選人姓名] 版權所有。</p>
+      <div className="footer-wrap">
+        <div className="footer-row1">{linksDom}</div>
+        <div className="footer-dash"></div>
+        {footerDetailDom}
+        <div className="copyright">
+          <p>© 2023 [立委候選人姓名] 版權所有。</p>
+        </div>
       </div>
     </div>
   );

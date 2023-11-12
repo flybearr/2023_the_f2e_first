@@ -92,8 +92,10 @@
   .card-wrap {
     margin: 0 auto;
     width: 100%;
+    min-width: 376px;
     // padding: 0 10px 10px 0;
-
+    flex-grow: 1;
+    flex-shrink: 1;
     h6 {
       line-height: 1.5rem;
     }
@@ -124,9 +126,15 @@
     }
     //title 文字敘述
     .title-decsribe {
+      flex: 1;
       margin: 0;
       line-height: 2rem;
       text-align: left;
+      h5 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
     }
   }
   .card-img-wrap {

@@ -1,6 +1,6 @@
 @import "../index.scss";
 .footer {
-  width: 100%;
+  // width: 100%;
   background-color: $neutral1;
   display: flex;
   flex-direction: column;
@@ -8,31 +8,38 @@
   align-items: center;
   padding-bottom: 2rem;
 }
-.footer-row1 {
+.footer-wrap {
   width: 90%;
+}
+.footer-row1 {
+  // width: 90%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding-top: 20px;
+  span {
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+    }
+  }
 }
+
 .footer-dash {
-  width: 90%;
+  // width: 90%;
   height: 10px;
   border-bottom: 2px dashed $text;
 }
 
 .footer-detail {
-  width: 90%;
   padding-top: 1rem;
-  display: flex;
-  gap: 5px;
-  span {
+  p {
     color: $text;
   }
 }
 
 .copyright {
-  width: 90%;
+  // width: 90%;
   p {
     padding-top: 1rem;
     text-align: left;
@@ -40,7 +47,17 @@
 }
 
 @media (min-width: 768px) {
-  .footer {
-    text-align: center;
+  .footer-wrap {
+    width: 30%;
+    p {
+      text-align: center;
+    }
+
+    .footer-detail {
+      padding-top: 1.5rem;
+    }
+    .copyright {
+      padding-top: 1.5rem;
+    }
   }
 }

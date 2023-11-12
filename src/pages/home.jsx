@@ -53,21 +53,40 @@ export default function Home() {
   return (
     <div className="home-wrap">
       <section className="home-banner">
-        <h3>台灣的明天，喵先鋪路 !</h3>
-        <h3>為喵星人，護台灣!</h3>
+        {isMobile ? (
+          <>
+            <h3>台灣的明天，喵先鋪路 !</h3>
+            <h3>為喵星人，護台灣!</h3>
+            <div className="home-img-wrap">
+              <img src="./image/cattext2.png" alt="" />
+            </div>
+          </>
+        ) : (
+          <>
+            <h1>台灣的明天，喵先鋪路 !</h1>
+            <h1>為喵星人，護台灣!</h1>
+          </>
+        )}
       </section>
       <section className="home-section1">
+        {isMobile ? (
+          <></>
+        ) : (
+          <div className="home-img-wrap">
+            <img src="./image/cattext2.png" alt="" />
+          </div>
+        )}
         <div className="section1-content-wrap">
-          <h5>主張</h5>
+          <h4>主張</h4>
           <div className="section1-line"></div>
-          <h5>
+          <h6>
             我堅信，藉由推動更完善的貓咪福利和相關政策，更是間接地投資於台灣的未來。畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的貓咪福利政策，為台灣的
             GDP 經濟帶來巨大效益。
-          </h5>
+          </h6>
           <br />
-          <h5>
+          <h6>
             因此，我期望能在立法院內推進這些政策，確保每一隻貓咪都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻貓咪開始。
-          </h5>
+          </h6>
         </div>
       </section>
 
@@ -117,6 +136,34 @@ export default function Home() {
         </div>
         <DonateBox />
         <Btn text={"前往捐款"} />
+        <div className="home-form-title">
+          {isMobile ? (
+            <div className="home-form-title-content">
+              <h2>您的聲音，</h2>
+              <h2> 我們的行動！</h2>
+              <h4>
+                親愛的鄉親，每一位市民的意見都是我們社區前進的原動力。
+                無論大小事，我都誠摯希望聽到您的建議。
+                分享您的想法，一同為我們的未來打造更美好！
+              </h4>
+            </div>
+          ) : (
+            <>
+              <div className="home-form-title-left-wrap">
+                <div className="home-form-title-left"></div>
+              </div>
+              <div className="home-form-title-content">
+                <h2>您的聲音， 我們的行動！</h2>
+                <h6>親愛的鄉親，每一位市民的意見都是我們社區前進的原動力。</h6>
+                <h6>無論大小事，我都誠摯希望聽到您的建議。</h6>
+                <h6>分享您的想法，一同為我們的未來打造更美好！</h6>
+              </div>
+              <div className="home-form-title-right-wrap">
+                <div className="home-form-title-right"></div>
+              </div>
+            </>
+          )}
+        </div>
         <div className="home-form-wrap">
           <form
             onSubmit={(e) => {
