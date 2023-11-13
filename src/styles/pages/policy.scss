@@ -1,1 +1,47 @@
 @import "../../index.scss";
+
+.policy-wrap {
+  overflow: hidden;
+  background-color: #e3d2cb;
+}
+
+.policy-section {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.policy-title {
+  width: 100%;
+  height: 70px;
+  border-radius: 60px;
+  background-color: $neutral1;
+  display: grid;
+  place-items: center;
+  margin: 3rem 0;
+}
+
+.policy-content-wrap {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.policy-content-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  .policy-tag-number {
+    width: 80px;
+    height: 80px;
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .number {
+      color: $neutral1;
+      -webkit-text-stroke: 2px $text;
+      font-weight: 900;
+    }
+  }
+}

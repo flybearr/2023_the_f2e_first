@@ -21,26 +21,24 @@ export default function DatePickers() {
   };
 
   return (
-    <Fragment>
-      <div className="custom-container">
-        <DatePicker
-          ref={datePickerOpenRef}
-          locale={zhCN}
-          dateFormatCalendar="LL月 / yyyy年"
-          onChange={handleDateChange}
-          monthsShown={2}
-          selectsRange={true}
-          startDate={dateRange[0]}
-          endDate={dateRange[1]}
-          placeholderText="請選擇時間日期"
-        />
-        <span
-          className="material-symbols-outlined calendar-icon"
-          onClick={toggleDatePicker}
-        >
-          calendar_today
-        </span>
-      </div>
-    </Fragment>
+    <div className="custom-container">
+      <DatePicker
+        ref={datePickerOpenRef}
+        locale={zhCN}
+        dateFormatCalendar="LL月 / yyyy年"
+        onChange={handleDateChange}
+        monthsShown={2}
+        selectsRange={true}
+        startDate={dateRange[0]}
+        endDate={dateRange[1]}
+        placeholderText="請選擇時間日期"
+      />
+      <span
+        className="material-symbols-outlined calendar-icon"
+        onClick={toggleDatePicker}
+      >
+        calendar_today
+      </span>
+    </div>
   );
 }

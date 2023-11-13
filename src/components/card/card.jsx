@@ -1,11 +1,11 @@
 import "../../styles/card/card.scss";
 // eslint-disable-next-line react/prop-types
-export default function Card({ title1, title2, content, img }) {
+export default function Card({ title1, title2, content, imgNumber }) {
   return (
     <div className="card-wrap">
       <div className="card-title">
         <div className="card-tag-number">
-          <h1 className="number">1</h1>
+          <h1 className="number">{imgNumber}</h1>
           <span className="date">12/26</span>
         </div>
         <div className="title-decsribe">
@@ -14,7 +14,7 @@ export default function Card({ title1, title2, content, img }) {
         </div>
       </div>
       <div className="card-img-wrap">
-        <img src={`./image/cardImg${img}.jpeg`} alt="catBanner" />
+        <img src={`./image/cardImg${imgNumber}.jpeg`} alt="catBanner" />
         <div className="touch-bar">
           {/* {favorite} */}
           <span className="material-icons">favorite</span>

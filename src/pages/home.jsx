@@ -3,11 +3,13 @@ import Card from "../components/card/card";
 import NextBtn from "../components/button/nextBtn";
 import Btn from "../components/button/btn";
 import DonateBox from "../components/donateBox";
-import Footer from "../components/footer";
-import { useMediaQuery } from "react-responsive";
+import DesktopNavBar from "../components/navBar/desktopNavBar";
+// import { useMediaQuery } from "react-responsive";
+import { usePageContext } from "../context/pageContext";
 
 export default function Home() {
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const { isMobile } = usePageContext();
   const cardContent = [
     {
       title1: "參與台北寵物論壇",
@@ -32,7 +34,7 @@ export default function Home() {
       title1={cardContent[0].title1}
       title2={cardContent[0]?.title2}
       content={cardContent[0].content}
-      img={1}
+      imgNumber={1}
     />
   ) : (
     <div className="desktop-card-wrap">
@@ -43,7 +45,7 @@ export default function Home() {
               title1={v.title1}
               title2={v?.title2}
               content={v.content}
-              img={i + 1}
+              imgNumber={i + 1}
             />
           </div>
         );
@@ -55,6 +57,9 @@ export default function Home() {
       <section className="home-banner">
         {isMobile ? (
           <>
+            <div className="img-wrap img-wrap-page">
+              <img src="./image/cattext.png" alt="" />
+            </div>
             <h3>台灣的明天，喵先鋪路 !</h3>
             <h3>為喵星人，護台灣!</h3>
             <div className="home-img-wrap">
@@ -63,6 +68,7 @@ export default function Home() {
           </>
         ) : (
           <>
+            <DesktopNavBar />
             <h1>台灣的明天，喵先鋪路 !</h1>
             <h1>為喵星人，護台灣!</h1>
           </>
@@ -165,6 +171,10 @@ export default function Home() {
           )}
         </div>
         <div className="home-form-wrap">
+          <div className="form-border-left"></div>
+          <div className="form-border-right"></div>
+          <div className="form-border-top"></div>
+          <div className="form-border-bottom"></div>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -211,7 +221,6 @@ export default function Home() {
           </form>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

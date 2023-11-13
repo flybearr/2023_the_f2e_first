@@ -1,0 +1,19 @@
+@import "../index.scss";
+.navigator {
+  width: 100%;
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  span {
+    cursor: pointer;
+    font-size: 1.5rem;
+    &:hover {
+      color: $primary;
+    }
+  }
+  .material-symbols-outlined {
+    font-size: 2.5rem;
+  }
+}

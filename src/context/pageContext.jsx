@@ -1,10 +1,13 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
+// import { useContext } from "react";
+
+import { useMediaQuery } from "react-responsive";
 const PageContext = createContext({});
 export default PageContext;
 // eslint-disable-next-line react/prop-types
 export const PageContextProvider = function ({ children }) {
   const [navBarOpen, setNavBarOpen] = useState(false);
-
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const navBarToggle = () => {
     setNavBarOpen(!navBarOpen);
   };
@@ -13,8 +16,15 @@ export const PageContextProvider = function ({ children }) {
     navBarToggle();
   };
   return (
-    <PageContext.Provider value={{ navBarOpen, navBarToggle, link_to_page }}>
+    <PageContext.Provider
+      value={{ navBarOpen, navBarToggle, link_to_page, isMobile }}
+    >
       {children}
     </PageContext.Provider>
   );
+};
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const usePageContext = () => {
+  return useContext(PageContext);
 };

@@ -1,5 +1,4 @@
-import React from "react";
-
+import "../styles/pages/donate.scss";
 export default function Donate() {
-  return <div></div>;
+  return <div className="donate-wrap"></div>;
 }

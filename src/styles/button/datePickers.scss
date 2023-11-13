@@ -1,15 +1,17 @@
 @import "../../index.scss";
 
 .custom-container {
+  width: 170px;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
 }
 
 .calendar-icon {
   font-size: 24px;
-  margin-right: 10px;
-  transform: translate(-150%, -5%);
+  right: -10px;
+  position: absolute;
   z-index: 10;
   cursor: pointer;
 }
@@ -83,4 +85,13 @@
   background-color: #105ea7;
   color: $neutral1;
   border-radius: 0.3rem;
+}
+
+@media (min-width: 768px) {
+  .react-datepicker__input-container > input {
+    padding-right: 100px;
+  }
+  .calendar-icon {
+    right: -50px;
+  }
 }
