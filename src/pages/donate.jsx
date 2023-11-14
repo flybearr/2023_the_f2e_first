@@ -66,11 +66,11 @@ export default function Donate() {
 
         <div className="donatePage-sponsor-wrap">
           {donateArray.map((v, index) => {
-            const left_right = index % 2 === 0 ? "fade-right" : "fade-left";
+            // const left_right = index % 2 === 0 ? "fade-right" : "fade-left";
             return (
               <div
                 className="sponsor-wrap"
-                data-aos={left_right}
+                // data-aos={left_right}
                 key={"sponsorBox" + index}
               >
                 <SponsorBox
