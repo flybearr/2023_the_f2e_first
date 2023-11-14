@@ -10,7 +10,7 @@ export default function MobileNavBar({ isOpen, toggle, link_to_page }) {
     if (i === 0) return;
     return (
       <Fragment key={v + i}>
-        <h3 onClick={link_to_page(navigate, v.link)}>{v.title}</h3>
+        <h4 onClick={link_to_page(navigate, v.link)}>{v.title}</h4>
       </Fragment>
     );
   });

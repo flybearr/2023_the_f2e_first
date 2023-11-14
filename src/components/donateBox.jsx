@@ -27,15 +27,15 @@ export default function DonateBox() {
     ],
   };
   const donateArray = [
-    { money: "NT$600", people: "9975" },
-    { money: "NT$6000", people: "1235" },
-    { money: "NT$60000", people: "7342" },
-    { money: "自訂", people: "0" },
+    { title: "喵星人之友", money: "NT$600", people: "9975" },
+    { title: "喵星大使", money: "NT$6000", people: "1235" },
+    { title: "喵星傳奇", money: "NT$60000", people: "7342" },
+    { title: "喵星自我", money: "自訂", people: "0" },
   ];
   const boxDom = donateArray.map((v, i) => (
     <div className="donate-banner-wrap" key={"donateBox" + i}>
       <div className="donate-banner">
-        <h3>喵星人之友</h3>
+        <h3>{v.title}</h3>
         <div className="donate-text-area">
           <div className="donate-text">
             <h2>{v.money} </h2>

@@ -1,22 +1,26 @@
 import "../styles/sponsorBox.scss";
 
-export default function SponsorBox() {
+// eslint-disable-next-line react/prop-types
+export default function SponsorBox({ title, money, people }) {
+  const formatMoney = (str) => {
+    return String(str).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   return (
     <div className="sponsor-wrap">
       <div className="sponsor-title">
         <div className="left-title"></div>
-        <h1>喵星之友</h1>
+        <h3>{title}</h3>
         <div className="right-title"></div>
       </div>
       <div className="sponsorBox">
         <div className="sponsor-top">
-          <h1>$600</h1>
-          <h4>一次捐款金額</h4>
+          <h4>{formatMoney(money)}</h4>
+          <h5>每次捐款金額</h5>
         </div>
         <div className="sponsor-dash"></div>
         <div className="sponsor-bottom">
-          <h1>987</h1>
-          <h4>捐款人數</h4>
+          <h4>{people}</h4>
+          <h5>贊助人數</h5>
         </div>
       </div>
     </div>

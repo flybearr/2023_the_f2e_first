@@ -1,6 +1,5 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 // import { useContext } from "react";
-
 import { useMediaQuery } from "react-responsive";
 const PageContext = createContext({});
 export default PageContext;
@@ -13,7 +12,7 @@ export const PageContextProvider = function ({ children }) {
   };
   const link_to_page = (navigate, link) => () => {
     navigate(link);
-    navBarToggle();
+    setNavBarOpen(false);
   };
   return (
     <PageContext.Provider

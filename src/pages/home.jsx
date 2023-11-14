@@ -1,15 +1,75 @@
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import "../styles/pages/home.scss";
 import Card from "../components/card/card";
 import NextBtn from "../components/button/nextBtn";
 import Btn from "../components/button/btn";
 import DonateBox from "../components/donateBox";
 import DesktopNavBar from "../components/navBar/desktopNavBar";
-// import { useMediaQuery } from "react-responsive";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { usePageContext } from "../context/pageContext";
+import { useEffect } from "react";
 
 export default function Home() {
-  // const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const { isMobile } = usePageContext();
+  // const navigate = useNavigate();
+
+  const schema = yup.object({
+    name: yup.string().required(),
+    mail: yup.string().required(),
+    phone: yup
+      .string()
+      .required()
+      .test("len", "電話號碼需10碼", (val) => val && val.length === 10),
+    suggestion: yup.string(),
+  });
+  const textInput = [
+    {
+      name: "name",
+      defaultValue: "",
+      title: "姓名",
+      placeholder: "請輸入中文或英文姓名",
+      type: "text",
+    },
+    {
+      name: "mail",
+      title: "信箱",
+      placeholder: "請輸入mail帳戶",
+      type: "mail",
+    },
+    {
+      name: "phone",
+      title: "電話",
+      placeholder: "請輸入十位數",
+      type: "text",
+    },
+    {
+      name: "suggestion",
+      title: "建言",
+      placeholder: "請輸入你的建言",
+      type: "text",
+    },
+  ];
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      name: "",
+      mail: "",
+      phone: "",
+      suggestion: "",
+    },
+  });
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // console.log(data);
+    //打api
+  };
   const cardContent = [
     {
       title1: "參與台北寵物論壇",
@@ -52,6 +112,9 @@ export default function Home() {
       })}
     </div>
   );
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="home-wrap">
       <section className="home-banner">
@@ -95,10 +158,11 @@ export default function Home() {
           </h6>
         </div>
       </section>
-
-      {/* <section className="home-section3"></section>
-      <section className="home-section4"></section> */}
-      <section className="home-section2">
+      <section
+        className="home-section2"
+        data-aos="slide-left"
+        data-aos-anchor-placement="top-center"
+      >
         <h3>最新消息</h3>
         {cardWrapDom}
         <NextBtn />
@@ -107,7 +171,12 @@ export default function Home() {
       <section className="home-section3">
         <h3 className="">政策議題</h3>
         <div className="article-wrap">
-          <div className="article">
+          <div
+            className="article"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-center"
+            data-aos-delay={isMobile ? "0" : "0"}
+          >
             <div className="icon-wrap">
               <span className="material-symbols-outlined">
                 volunteer_activism
@@ -116,14 +185,24 @@ export default function Home() {
             <h5>為毛孩子謀福利！</h5>
             <h5>推動寵物醫療保障方案</h5>
           </div>
-          <div className="article">
+          <div
+            className="article"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-center"
+            data-aos-delay={isMobile ? "0" : "200"}
+          >
             <div className="icon-wrap">
               <span className="material-symbols-outlined">deck</span>
             </div>
             <h5>打造休閒天堂！ </h5>
             <h5>推廣寵物休閒與娛樂場所</h5>
           </div>
-          <div className="article">
+          <div
+            className="article"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-center"
+            data-aos-delay={isMobile ? "0" : "400"}
+          >
             <div className="icon-wrap">
               <span className="material-symbols-outlined">
                 medical_services
@@ -171,22 +250,15 @@ export default function Home() {
           )}
         </div>
         <div className="home-form-wrap">
-          <div className="form-border-left"></div>
-          <div className="form-border-right"></div>
-          <div className="form-border-top"></div>
-          <div className="form-border-bottom"></div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <div className="input-area">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* <div className="input-area">
               <label htmlFor="name">姓名</label>
               <input
                 type="text"
                 name="name"
                 id="name"
                 placeholder="請輸入中文或英文姓名"
+                required
               />
             </div>
             <div className="input-area">
@@ -196,6 +268,7 @@ export default function Home() {
                 name="mail"
                 id="mail"
                 placeholder="請輸入mail帳戶"
+                required
               />
             </div>
             <div className="input-area">
@@ -205,9 +278,41 @@ export default function Home() {
                 name="phone"
                 id="phone"
                 placeholder="請輸入十位數"
+                required
               />
-            </div>
-            <div className="input-area">
+            </div> */}
+            {textInput.map((v, i) => {
+              return (
+                <div className="input-area" key={v.title}>
+                  <label htmlFor={v.name}>{v.title}</label>
+                  <Controller
+                    name={v.name}
+                    control={control}
+                    render={({ field }) => {
+                      const DOM =
+                        i === 3 ? (
+                          <textarea
+                            type={v.type}
+                            placeholder={v.placeholder}
+                            id={v.name}
+                            {...field}
+                            className="suggestion"
+                          />
+                        ) : (
+                          <input
+                            type={v.type}
+                            placeholder={v.placeholder}
+                            id={v.name}
+                            {...field}
+                          />
+                        );
+                      return DOM;
+                    }}
+                  />
+                </div>
+              );
+            })}
+            {/* <div className="input-area">
               <label htmlFor="suggestion">建言</label>
               <textarea
                 className="suggestion"
@@ -216,8 +321,9 @@ export default function Home() {
                 id="suggestion"
                 placeholder="請輸入你的建言"
               />
-            </div>
-            <Btn text={"送出"} />
+            </div> */}
+            <p style={{ color: "red" }}>{errors?.phone?.message}</p>
+            <Btn text={"送出"} link={false} />
           </form>
         </div>
       </section>

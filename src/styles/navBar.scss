@@ -4,12 +4,12 @@
 
 //圖片 wrap
 .img-wrap {
-  width: 100%;
+  margin: 0 auto;
   text-align: center;
   background-color: transparent;
   img {
-    width: 50%;
-    height: 120px;
+    width: 220px;
+    height: 80px;
   }
 }
 .img-wrap-page {
@@ -60,15 +60,10 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-
   position: fixed;
   top: 30px;
   left: 20px;
   z-index: 90;
-  //   transition: 0.1s;
-  //   &:active {
-  //     background-color: $primary;
-  //   }
 }
 
 .navbar-close {
@@ -85,26 +80,30 @@
 
 .desktop-navbar {
   width: 100%;
+  // height: 50px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: transparent;
+  color: $text;
   // padding: 0 12rem 0 0
 }
 
 .desktop-img-wrap {
   img {
-    width: 200px;
-    height: 100px;
+    width: 100px;
+    height: 50px;
   }
 }
 
 .desktop-link-wrap {
-  height: 100px;
+  height: 50px;
   display: flex;
   gap: 2rem;
+  // padding-bottom: 3rem;
   justify-content: center;
   align-items: center;
-  h4:hover {
+  h6:hover {
     cursor: pointer;
     color: $primary;
   }

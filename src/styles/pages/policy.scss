@@ -7,17 +7,16 @@
 
 .policy-section {
   margin: 0 auto;
-  width: 80%;
 }
 
 .policy-title {
-  width: 100%;
+  width: 95%;
   height: 70px;
   border-radius: 60px;
   background-color: $neutral1;
   display: grid;
   place-items: center;
-  margin: 3rem 0;
+  margin: 3rem auto;
 }
 
 .policy-content-wrap {
@@ -42,6 +41,55 @@
       color: $neutral1;
       -webkit-text-stroke: 2px $text;
       font-weight: 900;
+    }
+  }
+  .policy-decsribe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.policy-content-list {
+  width: 100%;
+  ol {
+    li {
+      letter-spacing: normal;
+      line-height: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .policy-section {
+    width: 80%;
+  }
+  .policy-title {
+    width: 100%;
+  }
+  .policy-content-wrap {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    .policy-content-title {
+      width: 40%;
+      justify-content: flex-start;
+      flex-shrink: 1;
+
+      gap: 1rem;
+      .policy-tag-number {
+        min-width: 80px;
+      }
+      .policy-decsribe {
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+    .policy-content-list {
+      width: 60%;
+      flex-shrink: 3;
     }
   }
 }

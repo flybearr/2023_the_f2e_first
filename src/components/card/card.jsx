@@ -16,7 +16,6 @@ export default function Card({ title1, title2, content, imgNumber }) {
       <div className="card-img-wrap">
         <img src={`./image/cardImg${imgNumber}.jpeg`} alt="catBanner" />
         <div className="touch-bar">
-          {/* {favorite} */}
           <span className="material-icons">favorite</span>
           <span className="material-symbols-outlined">share</span>
         </div>

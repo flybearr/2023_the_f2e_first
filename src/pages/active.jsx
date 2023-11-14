@@ -5,6 +5,9 @@ import DatePickers from "../components/button/datePicker";
 import Search from "../components/button/search";
 import Navigator from "../components/navigator";
 import { usePageContext } from "../context/pageContext";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 export default function Active() {
   const { isMobile } = usePageContext();
   const tag = ["人數", "收藏", "分享"];
@@ -16,13 +19,14 @@ export default function Active() {
         "炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的 VIP 休憩空間。",
     },
     {
-      title1: "掃街模式開啟！",
-      title2: " 帶著你的貓耳，來和我一起走！",
+      title1: "打造休閒天堂！",
+      title2: " 推廣寵物休閒與娛樂場所",
       content:
         "街上氣氛真的很棒，從小孩到大人，甚至有些狗狗朋友都帶著貓耳來找我握手，真的太可愛了！這次的活動不僅讓我看到大家的熱情，更加堅定了我推進「貓咪友善環境」政策的決心。",
     },
     {
-      title1: "收容所模特兒大比拼！",
+      title1: "推廣寵物飼養教育",
+      title2: "讓愛更加專業",
       content:
         "今天的收容所不再是一片寂靜。為了讓更多人認識到這裡的毛孩子，我們舉辦了一場前所未有的「模特兒走秀」！",
     },
@@ -31,7 +35,13 @@ export default function Active() {
     <div className="active-desktop-card-wrap">
       {cardContent.map((v, i) => {
         return (
-          <div key={"desktop-card-wrap" + i}>
+          <div
+            data-aos="fade"
+            data-aos-anchor-placement="top-center"
+            data-aos-easing="ease-in-out"
+            data-aos-delay={i * 200}
+            key={"desktop-card-wrap" + i}
+          >
             <Card
               title1={v.title1}
               title2={v?.title2}
@@ -52,6 +62,10 @@ export default function Active() {
       </div>
     );
   });
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="active-wrap">
       <section className="active-banner">
