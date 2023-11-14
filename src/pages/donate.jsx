@@ -67,13 +67,14 @@ export default function Donate() {
         <div className="donatePage-sponsor-wrap">
           {donateArray.map((v, index) => {
             return (
-              <SponsorBox
-                title={v.title}
-                money={v.money}
-                people={v.people}
-                side={index}
-                key={"sponsorBox" + index}
-              />
+              <div className="sponsor-wrap" key={"sponsorBox" + index}>
+                <SponsorBox
+                  title={v.title}
+                  money={v.money}
+                  people={v.people}
+                  side={index}
+                />
+              </div>
             );
           })}
         </div>

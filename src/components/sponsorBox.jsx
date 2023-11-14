@@ -13,7 +13,8 @@ export default function SponsorBox({ title, money, people, side }) {
   //   // Aos.init();
   // }, []);
   return (
-    <div className="sponsor-wrap">
+    // <div className="sponsor-wrap">
+    <>
       <div className="sponsor-title">
         <div className="left-title"></div>
         <h3>{title}</h3>
@@ -30,6 +31,6 @@ export default function SponsorBox({ title, money, people, side }) {
           <h5>贊助人數</h5>
         </div>
       </div>
-    </div>
+    </>
   );
 }
