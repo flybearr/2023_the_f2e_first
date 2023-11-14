@@ -14,7 +14,6 @@ import { useEffect } from "react";
 
 export default function Home() {
   const { isMobile } = usePageContext();
-  // const navigate = useNavigate();
 
   const schema = yup.object({
     name: yup.string().required(),

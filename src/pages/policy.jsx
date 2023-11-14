@@ -1,11 +1,13 @@
 import { usePageContext } from "../context/pageContext";
-import DesktopNavBar from "../components/navBar/desktopNavBar";
-import "../styles/pages/policy.scss";
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import "../styles/pages/policy.scss";
+import DesktopNavBar from "../components/navBar/desktopNavBar";
 import Aos from "aos";
 import "aos/dist/aos.css";
 export default function Policy() {
-  const { isMobile } = usePageContext();
+  const { isMobile, link_to_page } = usePageContext();
+  const nv = useNavigate();
   const content = [
     {
       content1: "為毛孩子謀福利！",
@@ -42,7 +44,7 @@ export default function Policy() {
       <div
         className="policy-content-wrap"
         data-aos="fade-up"
-        data-aos-anchor-placement="top-center"
+        data-aos-delay={index * 200}
         key={"policyList" + index}
       >
         <div className="policy-content-title">
@@ -71,7 +73,7 @@ export default function Policy() {
   return (
     <div className="policy-wrap">
       {isMobile ? (
-        <div className="img-wrap">
+        <div className="img-wrap" onClick={link_to_page(nv, "/")}>
           <img src="./image/cattext.png" alt="" />
         </div>
       ) : (

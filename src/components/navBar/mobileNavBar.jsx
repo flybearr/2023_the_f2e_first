@@ -16,7 +16,7 @@ export default function MobileNavBar({ isOpen, toggle, link_to_page }) {
   });
   return (
     <div className={divClassName}>
-      <div className="img-wrap">
+      <div className="img-wrap blue-bg">
         <img
           src="./image/cattext.png"
           alt=""
