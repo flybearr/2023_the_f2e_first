@@ -1,19 +1,19 @@
 import "../styles/sponsorBox.scss";
-import Aos from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
+// import { useEffect } from "react";
 // eslint-disable-next-line react/prop-types
 export default function SponsorBox({ title, money, people, side }) {
   const formatMoney = (str) => {
     return String(str).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
-  const left_right = side % 2 === 0 ? "fade-right" : "fade-left";
-  console.log(side % 2);
-  useEffect(() => {
-    Aos.init();
-  }, []);
+  // const left_right = side % 2 === 0 ? "fade-right" : "fade-left";
+  // console.log(side % 2);
+  // useEffect(() => {
+  //   // Aos.init();
+  // }, []);
   return (
-    <div className="sponsor-wrap" data-aos={left_right}>
+    <div className="sponsor-wrap">
       <div className="sponsor-title">
         <div className="left-title"></div>
         <h3>{title}</h3>
