@@ -10,7 +10,7 @@ function App() {
     // <NavBar />
 
     <PageContextProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/2023_the_f2e_first">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<Home />} />
